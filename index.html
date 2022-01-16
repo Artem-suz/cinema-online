@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css?_v=20220116194611">
+    <title>Online cinema</title>
+</head>
+
+<body>
+
+    <header class="header">
+     <div class=" header__content container">
+          <a class="header__logo" href="index.html">Online cinema</a>
+          <div class="header__user-widgets">
+               <form>
+                    <input class="header__search" type="text" placeholder="Поиск">
+               </form>
+               <div class="header__auth">
+                    <a class="header__auth-link" href="#">Войти</a>
+               </div>
+          </div>
+     </div>
+</header>
+    <main>
+        <div class="background-wrapper">
+            <div class="container">
+                <h1 class="main-title">Популярные фильмы онлайн</h1>
+                <nav class="catalog-filter">
+                    <ul class="nav-filter">
+                        <li class="nav-item" data-close="">
+                            <a class="dropdown-toggle">Жанр</a>
+                            <ul class="list-reset">
+                                <li><a data-genre="">Любой</a></li>
+                                <li><a data-genre="1">Триллер</a></li>
+                                <li><a data-genre="2">Драма</a></li>
+                                <li><a data-genre="3">Криминал </a></li>
+                                <li><a data-genre="4">Мелодрама </a></li>
+                                <li><a data-genre="5">Детектив </a></li>
+                                <li><a data-genre="6">Фантастика </a></li>
+                                <li><a data-genre="7">Приключения </a></li>
+                                <li><a data-genre="8">Биография </a></li>
+                                <li><a data-genre="9">Фильм-нуар </a></li>
+                                <li><a data-genre="10">Вестерн </a></li>
+                                <li><a data-genre="11">Боевик </a></li>
+                                <li><a data-genre="12">Фэнтези </a></li>
+                                <li><a data-genre="13">Комедия </a></li>
+                                <li><a data-genre="14">Военный </a></li>
+                                <li><a data-genre="15">История </a></li>
+                                <li><a data-genre="16">Музыка </a></li>
+                                <li><a data-genre="17">Ужасы </a></li>
+                                <li><a data-genre="18">Мультфильм </a></li>
+                                <li><a data-genre="19">Семейный </a></li>
+                                <li><a data-genre="20">Мюзикл </a></li>
+                                <li><a data-genre="21">Спорт </a></li>
+                                <li><a data-genre="22">Документальный </a></li>
+                                <li><a data-genre="23">Короткометражка </a></li>
+                                <li><a data-genre="24">Аниме </a></li>
+                                <li><a data-genre="26">Новости </a></li>
+                                <li><a data-genre="27">Концерт </a></li>
+                                <li><a data-genre="29">Церемония </a></li>
+                                <li><a data-genre="31">Игра </a></li>
+                                <li><a data-genre="32">Ток-шоу </a></li>
+                                <li><a data-genre="33">Детский </a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="dropdown-toggle">Год</a>
+                            <ul class="list-reset">
+                                <li><a data-startYear = "" data-endYear = "">Любой</a></li>
+                                <li><a data-startYear = "2021" data-endYear = "2022">2021</a></li>
+                                <li><a data-startYear = "2020" data-endYear = "2021">2020</a></li>
+                                <li><a data-startYear = "2019" data-endYear = "2020">2019</a></li>
+                                <li><a data-startYear = "2016" data-endYear = "2017">2016</a></li>
+                                <li><a data-startYear = "2010" data-endYear = "2015">2010-2015</a></li>
+                                <li><a data-startYear = "2000" data-endYear = "2010">2000-е</a></li>
+                                <li><a data-startYear = "1990" data-endYear = "2000">1990-е</a></li>
+                                <li><a data-startYear = "1980" data-endYear = "1990">1980-е</a></li>
+                                <li><a data-startYear = "1970" data-endYear = "1980">1970-е</a></li>
+                                <li><a data-startYear = "1960" data-endYear = "1970">1960-е</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="dropdown-toggle">Страна</a>
+                            <ul class="list-reset">
+                                <li><a data-country = "">Любая</a></li>
+                                <li><a data-country = "1">США</a></li>
+                                <li><a data-country = "2">Швейцария</a></li>
+                                <li><a data-country = "3">Франция</a></li>
+                                <li><a data-country = "4">Польша</a></li>
+                                <li><a data-country = "5">Великобритания</a></li>
+                                <li><a data-country = "6">Швеция</a></li>
+                                <li><a data-country = "7">Индия</a></li>
+                                <li><a data-country = "8">Испания</a></li>
+                                <li><a data-country = "9">Германия</a></li>
+                                <li><a data-country = "10">Италия</a></li>
+                                <li><a data-country = "16">Япония</a></li>
+                                <li><a data-country = "17">Дания</a></li>
+                                <li><a data-country = "18">Чехия</a></li>
+                                <li><a data-country = "21">Китай</a></li>
+                                <li><a data-country = "22">Норвегия</a></li>
+                                <li><a data-country = "25">Финляндия</a></li>
+                                <li><a data-country = "34">Россия</a></li>
+                                <li><a data-country = "33">СССР</a></li>
+                                <li><a data-country = "67">Казахстан</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="movies"> </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <ul class="footer__pages">
+           
+            <li class="pageNumber active"><a href="#">1</a></li>
+            <li class="pageNumber"><a href="#">2</a></li>
+            <li class="pageNumber"><a href="#">3</a></li>
+            <li class="pageNumber"><a href="#">4</a></li>
+            <li class="pageNumber"><a href="#">5</a></li>
+            <li class="pageNumber"><a href="#">6</a></li>
+            <li class="pageNumber"><a href="#">7</a></li>
+            <li class="pageNumber"><a href="#">8</a></li>
+            <li class="pageNumber"><a href="#">9</a></li>
+            <li class="pageNumber"><a href="#">10</a></li>
+            
+
+        </ul>
+    </div>
+</footer>
+    <script src="js/app.min.js?_v=20220116194611"></script>
+</body>
+
+</html>
