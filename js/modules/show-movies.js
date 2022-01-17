@@ -22,7 +22,7 @@ function showMovies(data, insertDirrect) {
     document.querySelector(`.${insertDirrect}`).innerHTML = "";
 
 
-    data.films.forEach(movie => {
+    (data.films).forEach(movie => {
         const movieElement = document.createElement("div")
         movieElement.classList.add("movie")
         movieElement.innerHTML = `
@@ -47,12 +47,12 @@ function showMovies(data, insertDirrect) {
 };
 
 function showRating(rating) {
-    
-    if (rating.indexOf("%") != -1) {
-        return (parseInt(rating) / 10).toFixed(1);
-    } else if (rating == "null") {
+    const ratingValue = rating + ""
+    if (ratingValue.indexOf("%") != -1) {
+        return (parseInt(ratingValue) / 10).toFixed(1);
+    } else if (ratingValue == "null") {
         return ""
-    } else return rating
+    } else return ratingValue
 };
 
 function drawRatingColor(rating) {
@@ -180,3 +180,48 @@ function showRecMovies(data, insertDirrect) {
 
     });
 }
+
+// getSimilarMovies(1, 6, 2020, 2021)
+export async function getSimilarMovies(country, genre, startYear, endYear) {
+    const API_URL_SIMILARS = `https://kinopoiskapiunofficial.tech/api/v2.2/films?countries=${country}&genres=${genre}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${startYear}&yearTo=${endYear}&page=1`
+    const response = await fetch(API_URL_SIMILARS, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-API-KEY': `${API_KEY}`
+        },
+    });
+    const data = await response.json();
+    console.log(data)
+    showSimilarMovies(data, "movies");
+};
+
+function showSimilarMovies(data, insertDirrect) {
+    const moviesElement = document.querySelector(`.${insertDirrect}`);
+
+    document.querySelector(`.${insertDirrect}`).innerHTML = "";
+
+
+    data.items.forEach(movie => {
+        const movieElement = document.createElement("div")
+        movieElement.classList.add("movie")
+        movieElement.innerHTML = `
+        <a href = "view.html?id=${movie.kinopoiskId}">
+            <div class="movie__cover-inner">
+                <img class="movie__cover" src="${ movie.posterUrlPreview }" alt ="${ movie.nameRu }">
+                <div class="movie__cover--darkened"></div> 
+            </div>
+        </a>
+            <div class="movie__info">
+                <div class="movie__title">${ movie.nameRu }</div>
+                <div class="movie__category">${ movie.genres.map( (genre) => ` ${genre.genre}`) }</div>
+                <div class="movie__rating movie__rating--${ drawRatingColor(movie.ratingKinopoisk) }">${ showRating(movie.ratingKinopoisk) }</div>
+            </div>
+    `;
+
+        moviesElement.append(movieElement)
+
+    });
+
+
+};
