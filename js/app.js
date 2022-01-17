@@ -126,19 +126,17 @@ for (let i = 0; i < navBtns.length; i++) {
             if (elem.dataset.genre) {
                 
                 genreId = elem.dataset.genre
-                console.log(genreId)
-                
+             
             }
             if (elem.dataset.startyear && elem.dataset.endyear) {
                 startYearId = elem.dataset.startyear
                 endYearId = elem.dataset.endyear
-                console.log(startYearId)
-                console.log(endYearId)
+                
                 
             }
             if (elem.dataset.country) {
                 countryId = elem.dataset.country
-                console.log(countryId)
+               
                 
             }
 
