@@ -1,7 +1,9 @@
 "use strict"
 
+
+
 import {
-    getMovies
+    getMovies, getSimilarMovies
 } from "./modules/show-movies.js"
 
 import {
@@ -22,7 +24,7 @@ const API_URL_SEARCH = "https://kinopoiskapiunofficial.tech/api/v2.1/films/searc
 let homePageMark = document.querySelector(".main-title");
 
 
-if (homePageMark)  getMovies(API_URL_POPULAR, 1) //условие запуска отрисовки главной страницы
+if (homePageMark) getMovies(API_URL_POPULAR, 1) //условие запуска отрисовки главной страницы
 
 
 const formElement = document.querySelector("form");
@@ -32,7 +34,7 @@ formElement.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const apiSearchUrl = `${API_URL_SEARCH}${searchElement.value}`;
- 
+
     if (searchElement.value) {
         getMovies(apiSearchUrl, 1);
         searchElement.value = "";
@@ -43,7 +45,7 @@ const pages = document.querySelectorAll(".pageNumber");
 
 
 for (let page of pages) {
-    
+
     page.addEventListener("click", () => {
         let currentActive = page.firstElementChild.innerHTML;
         pages.forEach((page) => page.classList.remove("active"));
@@ -105,9 +107,46 @@ const optionsHeaderRegistrationLink = {
 }
 
 const navBtns = document.querySelectorAll(".nav-item")
+let genreId = ""
+let countryId = ""
+let startYearId = ""
+let endYearId = ""
+
+
 for (let i = 0; i < navBtns.length; i++) {
     navBtns[i].addEventListener("click", showMenu)
+
+    for (let k = 0; k < navBtns[i].lastElementChild.children.length; k++) {
+
+        navBtns[i].lastElementChild.children[k].addEventListener("click", () => {
+
+            const elem = navBtns[i].lastElementChild.children[k].firstElementChild
+
+
+            if (elem.dataset.genre) {
+                
+                genreId = elem.dataset.genre
+                console.log(genreId)
+                
+            }
+            if (elem.dataset.startyear && elem.dataset.endyear) {
+                startYearId = elem.dataset.startyear
+                endYearId = elem.dataset.endyear
+                console.log(startYearId)
+                console.log(endYearId)
+                
+            }
+            if (elem.dataset.country) {
+                countryId = elem.dataset.country
+                console.log(countryId)
+                
+            }
+
+            getSimilarMovies(countryId, genreId, startYearId, endYearId)
+
+        })
+    }
 }
 
 
-
+/////////////////////////////////////
