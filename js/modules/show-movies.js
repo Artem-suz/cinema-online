@@ -181,7 +181,7 @@ function showRecMovies(data, insertDirrect) {
     });
 }
 
-// getSimilarMovies(1, 6, 2020, 2021)
+
 export async function getSimilarMovies(country, genre, startYear, endYear) {
     const API_URL_SIMILARS = `https://kinopoiskapiunofficial.tech/api/v2.2/films?countries=${country}&genres=${genre}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${startYear}&yearTo=${endYear}&page=1`
     const response = await fetch(API_URL_SIMILARS, {
@@ -192,7 +192,6 @@ export async function getSimilarMovies(country, genre, startYear, endYear) {
         },
     });
     const data = await response.json();
-    console.log(data)
     showSimilarMovies(data, "movies");
 };
 
